@@ -1,7 +1,7 @@
 {
   "description": "Showcasing the work of Joaquín Schmidt, this interactive portfolio highlights his expertise in AI and software engineering through a unique, system-inspired design.",
   "robots": {
-    "index": false
+    "index": true
   },
   "accessibility": {
     "addBypassLinks": false,
