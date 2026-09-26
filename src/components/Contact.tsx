@@ -24,11 +24,11 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-[80vh] flex flex-col"
+      className="min-h-[50vh] flex flex-col"
       style={{ borderTop: '1px solid rgba(236,231,222,0.07)' }}
     >
       {/* Main content */}
-      <div className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto w-full py-28 md:py-40">
+      <div className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto w-full py-16 md:py-20">
 
         {/* Section index */}
         <div className="flex items-baseline gap-6 mb-16 md:mb-20">

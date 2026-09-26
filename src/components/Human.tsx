@@ -27,13 +27,13 @@ export default function Human() {
   return (
     <section
       id="human"
-      className="pt-28 md:pt-40 pb-16 md:pb-20"
+      className="pt-16 md:pt-20 pb-16 md:pb-20"
       style={{ borderTop: '1px solid rgba(236,231,222,0.07)' }}
     >
       <div className="px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto">
 
         {/* Section index */}
-        <div className="flex items-baseline gap-6 mb-20 md:mb-28">
+        <div className="flex items-baseline gap-6 mb-16 md:mb-20">
           <span className="font-mono text-[10px] tracking-[0.22em] text-signal/70">01</span>
           <h2
             className="font-serif text-ink"
@@ -45,7 +45,7 @@ export default function Human() {
         </div>
 
         {/* Dramatic statement + portrait */}
-        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-20 items-center mb-20 md:mb-28">
+        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-20 items-center mb-16 md:mb-20">
           <div
             ref={statRef}
             className="transition-all duration-700"
@@ -115,14 +115,6 @@ export default function Human() {
               transform: metaIn ? 'none' : 'translateY(16px)',
             }}
           >
-            {/* Based */}
-            <div>
-              <p className="font-mono text-[9px] tracking-[0.25em] text-ink/30 mb-2">{t.human.based}</p>
-              <p className="font-mono text-[11px] tracking-[0.1em] text-ink/60">
-                Santa Fe, Argentina
-              </p>
-            </div>
-
             {/* Focus */}
             <div>
               <p className="font-mono text-[9px] tracking-[0.25em] text-ink/30 mb-2">{t.human.focus}</p>
@@ -139,6 +131,21 @@ export default function Human() {
               </p>
               <div className="flex flex-col gap-1.5">
                 {t.human.exploringItems.map((item) => (
+                  <p key={item} className="font-mono text-[10px] tracking-[0.08em] text-ink/45 flex items-center gap-2">
+                    <span className="text-signal/40">→</span>
+                    {item}
+                  </p>
+                ))}
+              </div>
+            </div>
+
+            {/* Off the keyboard */}
+            <div>
+              <p className="font-mono text-[9px] tracking-[0.25em] text-ink/30 mb-3">
+                {t.human.offKeyboardLabel}
+              </p>
+              <div className="flex flex-col gap-1.5">
+                {t.human.offKeyboardItems.map((item) => (
                   <p key={item} className="font-mono text-[10px] tracking-[0.08em] text-ink/45 flex items-center gap-2">
                     <span className="text-signal/40">→</span>
                     {item}

@@ -47,13 +47,13 @@ export default function Systems() {
   return (
     <section
       id="systems"
-      className="py-28 md:py-36"
+      className="pt-16 md:pt-20 pb-16 md:pb-20"
       style={{ borderTop: '1px solid rgba(236,231,222,0.07)' }}
     >
       <div className="px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto">
 
         {/* Section header */}
-        <div className="flex items-baseline gap-6 mb-16 md:mb-24">
+        <div className="flex items-baseline gap-6 mb-16 md:mb-20">
           <span className="font-mono text-[10px] tracking-[0.22em] text-signal/70">04</span>
           <h2
             className="font-serif text-ink"

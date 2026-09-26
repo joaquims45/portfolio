@@ -137,7 +137,7 @@ export default function Trace() {
   return (
     <section
       id="trace"
-      className="pt-16 md:pt-20 pb-28 md:pb-36"
+      className="pt-16 md:pt-20 pb-16 md:pb-20"
       style={{ borderTop: '1px solid rgba(236,231,222,0.07)' }}
     >
       <div className="px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto">
@@ -145,7 +145,7 @@ export default function Trace() {
         {/* Section header */}
         <div
           ref={headRef}
-          className={`flex items-baseline gap-6 mb-20 md:mb-28 trace-item ${headIn ? 'in-view' : ''}`}
+          className={`flex items-baseline gap-6 mb-16 md:mb-20 trace-item ${headIn ? 'in-view' : ''}`}
         >
           <span className="font-mono text-[10px] tracking-[0.22em] text-signal/70">02</span>
           <h2

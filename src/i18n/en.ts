@@ -108,7 +108,6 @@ export const en: Translations = {
       "I'm Joaquín, a software engineer from Argentina focused on the intersection between AI and traditional software engineering.",
       "I'm particularly interested in turning impressive AI prototypes into useful, maintainable and production-ready systems.",
     ],
-    based: 'BASED',
     focus: 'FOCUS',
     focusValue: ['AI Systems', 'Backend Engineering'],
     exploringLabel: 'CURRENTLY EXPLORING',
@@ -118,6 +117,14 @@ export const en: Translations = {
       'RAG architectures',
       'LLM evaluation',
       'Human-in-the-loop systems',
+    ],
+    offKeyboardLabel: 'OFF THE KEYBOARD',
+    offKeyboardItems: [
+      'Gaming',
+      'Building indie games',
+      'Football',
+      'Traveling',
+      'AI side quests',
     ],
   },
   contact: {

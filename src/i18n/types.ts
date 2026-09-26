@@ -63,11 +63,12 @@ export interface Translations {
     title: string;
     statement: [string, string, string, string];
     bioParagraphs: [string, string];
-    based: string;
     focus: string;
     focusValue: [string, string];
     exploringLabel: string;
     exploringItems: [string, string, string, string, string];
+    offKeyboardLabel: string;
+    offKeyboardItems: [string, string, string, string, string];
   };
   contact: {
     title: string;

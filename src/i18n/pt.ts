@@ -108,7 +108,6 @@ export const pt: Translations = {
       'Sou o Joaquín, engenheiro de software da Argentina focado na interseção entre IA e engenharia de software tradicional.',
       'Tenho interesse particular em transformar prototipos impressionantes de IA em sistemas úteis, sustentáveis e prontos para produção.',
     ],
-    based: 'LOCALIZAÇÃO',
     focus: 'FOCO',
     focusValue: ['Sistemas de IA', 'Engenharia Backend'],
     exploringLabel: 'EXPLORANDO ATUALMENTE',
@@ -118,6 +117,14 @@ export const pt: Translations = {
       'Arquiteturas RAG',
       'Avaliação de LLM',
       'Sistemas human-in-the-loop',
+    ],
+    offKeyboardLabel: 'FORA DO TECLADO',
+    offKeyboardItems: [
+      'Gaming',
+      'Desenvolvimento de jogos indie',
+      'Futebol',
+      'Viajar',
+      'Side quests de IA',
     ],
   },
   contact: {

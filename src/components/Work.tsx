@@ -162,10 +162,10 @@ export default function Work() {
   return (
     <section
       id="work"
-      className="py-28 md:py-36 px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto"
+      className="pt-16 md:pt-20 pb-16 md:pb-20 px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto"
     >
       {/* Section header */}
-      <div className="flex items-baseline gap-6 mb-20 md:mb-28">
+      <div className="flex items-baseline gap-6 mb-16 md:mb-20">
         <span className="font-mono text-[10px] tracking-[0.22em] text-signal/70">05</span>
         <h2
           className="font-serif text-ink"
@@ -178,7 +178,7 @@ export default function Work() {
 
       {/* ── PROJECT 01: Source Lens ── */}
       <article
-        className="mb-24 md:mb-32 group cursor-pointer"
+        className="mb-16 md:mb-20 group cursor-pointer"
         onMouseEnter={() => setHovered(1)}
         onMouseLeave={() => setHovered(null)}
       >
