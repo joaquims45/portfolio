@@ -1,0 +1,117 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500&display=swap');
+
+@import 'tailwindcss';
+
+@theme {
+  --font-serif: 'DM Serif Display', Georgia, serif;
+  --font-sans: 'Barlow', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Courier New', monospace;
+
+  --color-bg: #080808;
+  --color-ink: #ECE7DE;
+  --color-signal: #C8903A;
+  --color-surface: #0F0F0E;
+  --color-dim: #5A5550;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 56px;
+}
+
+body {
+  background-color: #080808;
+  color: #ECE7DE;
+  font-family: 'Barlow', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+::-webkit-scrollbar { width: 1px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: rgba(236, 231, 222, 0.08); }
+
+::selection {
+  background: rgba(200, 144, 58, 0.2);
+  color: #ECE7DE;
+}
+
+/* Trace scroll reveal */
+.trace-item {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.65s ease, transform 0.65s ease;
+}
+
+.trace-item.in-view {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Trace line progressive draw */
+.trace-line-segment {
+  transform: scaleY(0);
+  transform-origin: top;
+  transition: transform 0.5s ease;
+}
+
+.trace-line-segment.drawn {
+  transform: scaleY(1);
+}
+
+/* Nav underline */
+.nav-item {
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-item::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #C8903A;
+  transition: width 0.22s ease;
+}
+
+.nav-item:hover::after,
+.nav-item.active::after {
+  width: 100%;
+}
+
+/* Background grid texture */
+.bg-grid {
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      rgba(236, 231, 222, 0.025) 0px,
+      rgba(236, 231, 222, 0.025) 1px,
+      transparent 1px,
+      transparent 120px
+    );
+}
+
+/* Section reveal */
+@keyframes section-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Cursor blink for trace */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.cursor-blink {
+  animation: blink 1.1s step-end infinite;
+}
