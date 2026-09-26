@@ -28,6 +28,7 @@ export interface Translations {
   trace: {
     title: string;
     entries: [TraceEntryText, TraceEntryText, TraceEntryText];
+    present: string;
     nowLine1: string;
     nowLine2: string;
     active: string;
@@ -49,13 +50,9 @@ export interface Translations {
     title: string;
     technologies: string;
     architecture: string;
-    topology: string;
-    caseStudy: string;
     projectLabel: string;
     status: {
-      development: string;
       comingSoon: string;
-      researching: string;
     };
     sourceLens: {
       name: [string, string];
@@ -64,10 +61,6 @@ export interface Translations {
     salesAgent: {
       name: [string, string];
       tagline: [string, string, string, string];
-    };
-    agentWorkflow: {
-      name: [string, string, string];
-      tagline: string;
     };
   };
   human: {

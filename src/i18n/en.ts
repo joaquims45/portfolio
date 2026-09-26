@@ -23,17 +23,41 @@ export const en: Translations = {
     entries: [
       {
         role: 'FULL-STACK DEVELOPER',
-        tasks: ['Multi-agent systems with LangGraph', 'Django REST API for agent management', 'Admin & agent interfaces (React + MUI)'],
+        tasks: [
+          'Admin interfaces for user, conversation, and analytics management',
+          'Reusable React + MUI components for sessions and agent responses',
+          'Cross-team collaboration translating requirements into responsive UI',
+          'Multi-agent system with LangGraph and LangChain, custom Python tools',
+          'REST API with Django and DRF for agents, sessions, and client data',
+          'Modular architecture for per-client agent and LLM configuration',
+          'Applied AI best practices: memory, tool orchestration, RAG, prompt engineering',
+        ],
       },
       {
         role: 'AI ENGINEER',
-        tasks: ['Multi-tenant AI architecture', 'RAG-powered assistants', 'Omnichannel messaging (WhatsApp, Telegram)', 'Agent orchestration with LangGraph'],
+        tasks: [
+          'Dynamic, responsive React UI with real-time messaging',
+          'Multi-tenant architecture for secure per-client assistant management',
+          'RAG system grounding assistants in business context',
+          'Modular prompt templates & scalable agent orchestration (LangGraph, LangChain)',
+          'Omnichannel messaging integration (WhatsApp, Telegram)',
+          'API endpoints for sessions, analytics, and assistant configuration',
+          'Optimized conversation storage and indexing for fast retrieval',
+        ],
       },
       {
         role: 'FULL-STACK DEVELOPER',
-        tasks: ['Invoicing microservices (NestJS)', 'Async order-processing workers', 'Excel-to-system migration', 'DB migrations & domain refactors'],
+        tasks: [
+          'Backend & automation features for invoicing microservices (NestJS, TypeORM, PostgreSQL)',
+          'Async worker for invoiceable orders and logistics-to-billing integration via SQS',
+          'Migrated invoicing logic from Excel to the system, cutting processing time',
+          'Table normalization, DB migrations, and domain refactors',
+          'Billing APIs: configurable rules, surcharges, validations, Tango integration',
+          'RPA scripts to sync billing rules, articles, and services across systems',
+        ],
       },
     ],
+    present: 'Present',
     nowLine1: 'AI Systems',
     nowLine2: 'Backend Engineering',
     active: 'ACTIVE',
@@ -68,13 +92,9 @@ export const en: Translations = {
     title: 'Selected Work',
     technologies: 'Technologies',
     architecture: 'Architecture',
-    topology: 'Topology',
-    caseStudy: 'CASE STUDY',
     projectLabel: 'PROJECT',
     status: {
-      development: 'IN DEVELOPMENT',
       comingSoon: 'COMING SOON',
-      researching: 'RESEARCHING',
     },
     sourceLens: {
       name: ['Source', 'Lens'],
@@ -83,10 +103,6 @@ export const en: Translations = {
     salesAgent: {
       name: ['AI Sales', 'Agent'],
       tagline: ["Products shouldn't", 'just be searchable.', 'They should be able', 'to explain themselves.'],
-    },
-    agentWorkflow: {
-      name: ['Agent', 'Workflow', 'Experiment'],
-      tagline: 'Exploring multi-agent coordination patterns, routing strategies, and state machines for production agentic systems.',
     },
   },
   human: {

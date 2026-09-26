@@ -129,62 +129,6 @@ const salesAgentNodes: ArchNode[] = [
   { label: 'Mercado Pago', x: 160, y: 192, to: [] },
 ];
 
-/* ─── Project 03 — Abstract node graph placeholder ─── */
-
-function AbstractNodeGraph({ active }: { active: boolean }) {
-  const nodes = [
-    { cx: 140, cy: 40 },
-    { cx: 60, cy: 100 },
-    { cx: 220, cy: 100 },
-    { cx: 100, cy: 160 },
-    { cx: 180, cy: 160 },
-    { cx: 140, cy: 220 },
-  ];
-  const edges = [
-    [0, 1], [0, 2], [1, 3], [2, 4], [3, 5], [4, 5], [1, 4], [2, 3],
-  ];
-
-  return (
-    <svg
-      viewBox="0 0 280 260"
-      className="w-full"
-      style={{ maxWidth: 260, opacity: active ? 1 : 0.4, transition: 'opacity 0.3s ease' }}
-      aria-hidden="true"
-    >
-      {edges.map(([a, b], i) => (
-        <line
-          key={i}
-          x1={nodes[a].cx} y1={nodes[a].cy}
-          x2={nodes[b].cx} y2={nodes[b].cy}
-          stroke={active ? 'rgba(200,144,58,0.45)' : 'rgba(236,231,222,0.15)'}
-          strokeWidth="0.6"
-          style={{ transition: 'stroke 0.4s ease' }}
-        />
-      ))}
-      {nodes.map((n, i) => (
-        <g key={i}>
-          <circle
-            cx={n.cx} cy={n.cy} r="5"
-            fill="none"
-            stroke={active ? '#C8903A' : 'rgba(236,231,222,0.3)'}
-            strokeWidth="0.6"
-            style={{ transition: 'stroke 0.4s ease' }}
-          />
-          <circle
-            cx={n.cx} cy={n.cy} r="1.5"
-            fill={active ? '#C8903A' : 'rgba(236,231,222,0.4)'}
-            style={{ transition: 'fill 0.4s ease' }}
-          />
-        </g>
-      ))}
-      <text x="14" y="250" fontSize="7.5" fill="rgba(200,144,58,0.35)"
-        fontFamily="'JetBrains Mono', monospace" letterSpacing="0.1em">
-        AGENT_WORKFLOW / RESEARCH
-      </text>
-    </svg>
-  );
-}
-
 /* ─── Label component ─── */
 
 function Label({ children }: { children: React.ReactNode }) {
@@ -195,12 +139,10 @@ function Label({ children }: { children: React.ReactNode }) {
   );
 }
 
-type StatusVariant = 'development' | 'comingSoon' | 'researching';
+type StatusVariant = 'comingSoon';
 
 const STATUS_COLORS: Record<StatusVariant, string> = {
-  development: 'text-signal',
   comingSoon: 'text-ink/45',
-  researching: 'text-ink/30',
 };
 
 function StatusBadge({ variant, label }: { variant: StatusVariant; label: string }) {
@@ -280,13 +222,22 @@ export default function Work() {
               </p>
             </div>
 
-            <div className="flex items-center gap-6 mt-4">
-              <StatusBadge variant="development" label={t.work.status.development} />
+            <div className="flex flex-wrap items-center gap-6 mt-4">
               <a
-                href="#"
+                href="https://github.com/joaquims45/source-lens-front"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="font-mono text-[10px] tracking-[0.2em] text-ink/40 hover:text-signal transition-colors duration-200 flex items-center gap-1.5"
               >
-                {t.work.caseStudy} <span className="text-signal">→</span>
+                FRONTEND <span className="text-signal/70 text-[11px]">↗</span>
+              </a>
+              <a
+                href="https://github.com/joaquims45/source-lens-back"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-[10px] tracking-[0.2em] text-ink/40 hover:text-signal transition-colors duration-200 flex items-center gap-1.5"
+              >
+                BACKEND <span className="text-signal/70 text-[11px]">↗</span>
               </a>
             </div>
           </div>
@@ -301,7 +252,7 @@ export default function Work() {
 
       {/* ── PROJECT 02: AI Sales Agent ── */}
       <article
-        className="mb-24 md:mb-32 group cursor-pointer"
+        className="group cursor-pointer"
         onMouseEnter={() => setHovered(2)}
         onMouseLeave={() => setHovered(null)}
       >
@@ -354,57 +305,6 @@ export default function Work() {
             <div className="mt-4">
               <StatusBadge variant="comingSoon" label={t.work.status.comingSoon} />
             </div>
-          </div>
-        </div>
-      </article>
-
-      {/* ── PROJECT 03: Agent Workflow Experiment ── */}
-      <article
-        className="group cursor-pointer"
-        onMouseEnter={() => setHovered(3)}
-        onMouseLeave={() => setHovered(null)}
-      >
-        <div
-          className="h-px mb-10 transition-all duration-500"
-          style={{
-            background: hovered === 3
-              ? 'linear-gradient(90deg, rgba(200,144,58,0.7) 0%, rgba(236,231,222,0.06) 100%)'
-              : 'rgba(236,231,222,0.08)',
-          }}
-        />
-
-        {/* Full-width composition with abstract visual */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
-
-          <div className="flex flex-col gap-6">
-            <Label>{t.work.projectLabel} 03</Label>
-
-            <h3
-              className="font-serif text-ink leading-[0.92]"
-              style={{ fontSize: 'clamp(38px, 5.5vw, 86px)' }}
-            >
-              {t.work.agentWorkflow.name[0]}<br />
-              {t.work.agentWorkflow.name[1]}<br />
-              <em className="not-italic text-ink/30">{t.work.agentWorkflow.name[2]}</em>
-            </h3>
-
-            <p className="text-ink/35 leading-relaxed max-w-sm font-light"
-              style={{ fontSize: 'clamp(14px, 1.1vw, 17px)' }}>
-              {t.work.agentWorkflow.tagline}
-            </p>
-
-            <div className="mt-4 flex flex-col gap-3">
-              <StatusBadge variant="researching" label={t.work.status.researching} />
-              <p className="font-mono text-[9px] tracking-[0.18em] text-ink/20">
-                LangGraph / Python / Custom Orchestration
-              </p>
-            </div>
-          </div>
-
-          {/* Abstract node graph */}
-          <div className="flex flex-col gap-3 items-start lg:items-center">
-            <Label>{t.work.topology}</Label>
-            <AbstractNodeGraph active={hovered === 3} />
           </div>
         </div>
 

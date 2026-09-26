@@ -23,17 +23,41 @@ export const es: Translations = {
     entries: [
       {
         role: 'DESARROLLADOR FULL-STACK',
-        tasks: ['Sistemas multi-agente con LangGraph', 'API REST con Django para gestión de agentes', 'Interfaces admin y de agentes (React + MUI)'],
+        tasks: [
+          'Interfaces de administración para usuarios, conversaciones y analítica',
+          'Componentes reutilizables con React y MUI para sesiones y respuestas de agentes',
+          'Colaboración con producto y diseño para interfaces responsivas',
+          'Sistema multiagente con LangGraph y LangChain, herramientas custom en Python',
+          'API REST con Django y DRF para agentes, sesiones y datos de clientes',
+          'Arquitectura modular para configuración de agentes y LLMs por cliente',
+          'Buenas prácticas de IA: memoria, orquestación de herramientas, RAG, prompt engineering',
+        ],
       },
       {
         role: 'INGENIERO DE IA',
-        tasks: ['Arquitectura de IA multi-tenant', 'Asistentes potenciados por RAG', 'Mensajería omnicanal (WhatsApp, Telegram)', 'Orquestación de agentes con LangGraph'],
+        tasks: [
+          'Interfaces React dinámicas y responsivas con mensajería en tiempo real',
+          'Arquitectura multi-tenant para gestión segura de asistentes por cliente',
+          'Sistema RAG con conocimiento contextual del negocio',
+          'Plantillas de prompts modulares y orquestación escalable (LangGraph, LangChain)',
+          'Integración de mensajería omnicanal (WhatsApp, Telegram)',
+          'Endpoints de API para sesiones, analítica y configuración de asistentes',
+          'Optimización de almacenamiento e indexado de conversaciones',
+        ],
       },
       {
         role: 'DESARROLLADOR FULL-STACK',
-        tasks: ['Microservicios de facturación (NestJS)', 'Workers asíncronos de procesamiento de órdenes', 'Migración de Excel al sistema', 'Migraciones de base de datos y refactors de dominio'],
+        tasks: [
+          'Funcionalidades backend y de automatización para facturación (NestJS, TypeORM, PostgreSQL)',
+          'Worker asíncrono para órdenes facturables e integración logística-facturación vía SQS',
+          'Migración de la lógica de facturación desde Excel al sistema',
+          'Normalización de tablas, migraciones de base de datos y refactors de dominio',
+          'APIs de facturación: reglas configurables, recargos, validaciones, integración con Tango',
+          'Scripts de RPA para sincronizar reglas, artículos y servicios entre sistemas',
+        ],
       },
     ],
+    present: 'Presente',
     nowLine1: 'Sistemas de IA',
     nowLine2: 'Ingeniería Backend',
     active: 'ACTIVO',
@@ -68,13 +92,9 @@ export const es: Translations = {
     title: 'Proyectos Seleccionados',
     technologies: 'Tecnologías',
     architecture: 'Arquitectura',
-    topology: 'Topología',
-    caseStudy: 'CASO DE ESTUDIO',
     projectLabel: 'PROYECTO',
     status: {
-      development: 'EN DESARROLLO',
       comingSoon: 'PRÓXIMAMENTE',
-      researching: 'EN INVESTIGACIÓN',
     },
     sourceLens: {
       name: ['Source', 'Lens'],
@@ -83,10 +103,6 @@ export const es: Translations = {
     salesAgent: {
       name: ['AI Sales', 'Agent'],
       tagline: ['Los productos no deberían', 'ser solo buscables.', 'Deberían poder', 'explicarse a sí mismos.'],
-    },
-    agentWorkflow: {
-      name: ['Agent', 'Workflow', 'Experiment'],
-      tagline: 'Explorando patrones de coordinación multi-agente, estrategias de enrutamiento y máquinas de estado para sistemas agénticos de producción.',
     },
   },
   human: {

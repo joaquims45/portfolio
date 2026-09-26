@@ -2,7 +2,8 @@ import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../i18n';
 
 interface TraceEntryMeta {
-  timestamp: string;
+  dateFrom: string;
+  dateTo?: string; // omitted = ongoing, renders via the "present" translation
   company: string;
   stack: string;
 }
@@ -13,9 +14,9 @@ interface TraceEntry extends TraceEntryMeta {
 }
 
 const ENTRIES_META: TraceEntryMeta[] = [
-  { timestamp: '2024.05', company: 'HELPIA', stack: 'Python · Django · React · LangGraph' },
-  { timestamp: '2025.03', company: 'GENTS', stack: 'LangGraph · LangChain · Django · React' },
-  { timestamp: '2025.08', company: 'TECNOSOFTWARE', stack: 'NestJS · TypeScript · PostgreSQL · Redis · SQS' },
+  { dateFrom: '2024.05', dateTo: '2025.03', company: 'HELPIA', stack: 'Python · Django · React · MUI · LangGraph' },
+  { dateFrom: '2025.03', dateTo: '2025.08', company: 'GENTS', stack: 'React · LangGraph · LangChain · WhatsApp · Telegram' },
+  { dateFrom: '2025.08', company: 'TECNOSOFTWARE', stack: 'NestJS · TypeScript · TypeORM · PostgreSQL · SQS' },
 ];
 
 function useInView(threshold = 0.2) {
@@ -38,11 +39,12 @@ function useInView(threshold = 0.2) {
 
 interface TraceItemProps {
   entry: TraceEntry;
+  present: string;
   delay?: number;
   isLast?: boolean;
 }
 
-function TraceItem({ entry, delay = 0, isLast = false }: TraceItemProps) {
+function TraceItem({ entry, present, delay = 0, isLast = false }: TraceItemProps) {
   const { ref, inView } = useInView(0.15);
 
   return (
@@ -78,23 +80,26 @@ function TraceItem({ entry, delay = 0, isLast = false }: TraceItemProps) {
 
         {/* Right: content */}
         <div className="pb-16 flex-1">
-          {/* Timestamp */}
+          {/* Date range */}
           <div className="flex items-center gap-4 mb-5">
             <span className="font-mono text-[9px] tracking-[0.18em] text-ink/30">
-              {entry.timestamp}
+              {entry.dateFrom} — {entry.dateTo ?? present}
             </span>
           </div>
 
-          {/* Company + role */}
+          {/* Company + role badge */}
           <h3
-            className="font-serif text-ink mb-1"
+            className="font-serif text-ink mb-3"
             style={{ fontSize: 'clamp(22px, 2.5vw, 36px)' }}
           >
             {entry.company}
           </h3>
-          <p className="font-mono text-[10px] tracking-[0.22em] text-signal/70 mb-6">
+          <span
+            className="inline-block font-mono text-[9px] tracking-[0.2em] text-signal px-2.5 py-1 mb-6"
+            style={{ border: '1px solid rgba(200,144,58,0.4)' }}
+          >
             {entry.role}
-          </p>
+          </span>
 
           {/* Tasks */}
           <ul className="flex flex-col gap-2 mb-6">
@@ -214,6 +219,7 @@ export default function Trace() {
             <TraceItem
               key={entry.company}
               entry={entry}
+              present={t.trace.present}
               delay={i * 80}
               isLast={i === entries.length - 1}
             />
