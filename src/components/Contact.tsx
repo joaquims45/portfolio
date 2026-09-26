@@ -25,10 +25,10 @@ export default function Contact() {
     <section
       id="contact"
       className="min-h-[50vh] flex flex-col"
-      style={{ borderTop: '1px solid rgba(236,231,222,0.07)' }}
+      style={{ borderTop: '1px solid rgba(236,231,222,0.14)' }}
     >
       {/* Main content */}
-      <div className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto w-full pt-16 md:pt-20">
+      <div className="flex-1 flex flex-col justify-center px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto w-full pt-16 md:pt-20 pb-[5px]">
 
         {/* Section index */}
         <div className="flex items-baseline gap-6 mb-16 md:mb-20">
@@ -83,7 +83,7 @@ export default function Contact() {
           </a>
 
           {/* External links */}
-          <div className="flex items-center gap-8">
+          <div className="flex items-center gap-8 pb-10 md:pb-12">
             <a
               href="https://github.com/joaquims45"
               target="_blank"
@@ -109,7 +109,7 @@ export default function Contact() {
 
       {/* Footer */}
       <div
-        className="px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto w-full py-6 flex items-center justify-between"
+        className="px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto w-full pt-6 pb-10 md:pb-12 flex items-center justify-between"
         style={{ borderTop: '1px solid rgba(236,231,222,0.06)' }}
       >
         <div>

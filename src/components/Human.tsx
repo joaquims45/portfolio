@@ -28,7 +28,7 @@ export default function Human() {
     <section
       id="human"
       className="pt-16 md:pt-20 pb-8 md:pb-12"
-      style={{ borderTop: '1px solid rgba(236,231,222,0.07)' }}
+      style={{ borderTop: '1px solid rgba(236,231,222,0.14)' }}
     >
       <div className="px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto">
 

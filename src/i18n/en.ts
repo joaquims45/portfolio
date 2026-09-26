@@ -13,7 +13,6 @@ export const en: Translations = {
   },
   hero: {
     role: 'AI ENGINEER / FULL-STACK',
-    location: 'SANTA FE, ARGENTINA',
     headline: ['I BUILD', 'SOFTWARE', 'THAT CAN', 'REASON', 'BEFORE IT', 'ACTS.'],
     archLabel: 'SYSTEM / ARCHITECTURE',
   },

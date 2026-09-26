@@ -109,10 +109,6 @@ export default function Hero() {
           <span className="font-mono text-[9px] tracking-[0.28em] text-signal">
             {t.hero.role}
           </span>
-          <span className="h-px w-6 bg-ink/20" />
-          <span className="font-mono text-[9px] tracking-[0.28em] text-ink/30">
-            {t.hero.location}
-          </span>
         </div>
 
         {/* Two-column layout */}

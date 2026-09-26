@@ -20,7 +20,6 @@ export interface Translations {
   };
   hero: {
     role: string;
-    location: string;
     headline: [string, string, string, string, string, string];
     archLabel: string;
   };
