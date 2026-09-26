@@ -58,9 +58,6 @@ export const en: Translations = {
       },
     ],
     present: 'Present',
-    nowLine1: 'AI Systems',
-    nowLine2: 'Backend Engineering',
-    active: 'ACTIVE',
   },
   education: {
     title: 'Education',

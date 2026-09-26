@@ -29,9 +29,6 @@ export interface Translations {
     title: string;
     entries: [TraceEntryText, TraceEntryText, TraceEntryText];
     present: string;
-    nowLine1: string;
-    nowLine2: string;
-    active: string;
   };
   education: {
     title: string;

@@ -123,62 +123,6 @@ function TraceItem({ entry, present, delay = 0, isLast = false }: TraceItemProps
   );
 }
 
-/* ─── "NOW" terminal entry ─── */
-
-interface NowEntryProps {
-  line1: string;
-  line2: string;
-  active: string;
-}
-
-function NowEntry({ line1, line2, active }: NowEntryProps) {
-  const { ref, inView } = useInView(0.15);
-
-  return (
-    <div
-      ref={ref}
-      className={`trace-item ${inView ? 'in-view' : ''}`}
-      style={{ transitionDelay: '100ms' }}
-    >
-      <div className="flex gap-6 md:gap-10 items-start">
-        <div className="flex flex-col items-center flex-shrink-0">
-          <div
-            className="w-2 h-2 flex-shrink-0 mt-1 transition-all duration-500"
-            style={{
-              backgroundColor: inView ? '#C8903A' : 'rgba(236,231,222,0.15)',
-              boxShadow: inView ? '0 0 12px rgba(200,144,58,0.6)' : 'none',
-            }}
-          />
-        </div>
-
-        <div className="pb-4">
-          <div className="flex items-center gap-4 mb-4">
-            <span className="font-mono text-[9px] tracking-[0.22em] text-signal">
-              NOW
-            </span>
-            <span className="h-px w-4 bg-signal/30" />
-            <span className="font-mono text-[9px] tracking-[0.18em] text-ink/30">
-              2026
-            </span>
-          </div>
-
-          <h3
-            className="font-serif text-ink mb-1"
-            style={{ fontSize: 'clamp(22px, 2.5vw, 36px)' }}
-          >
-            {line1}<em className="not-italic text-ink/40"> ×</em><br />
-            {line2}
-          </h3>
-
-          <p className="font-mono text-[10px] tracking-[0.16em] text-signal/50 mt-3">
-            {active}
-          </p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
 /* ─── Trace Section ─── */
 
 export default function Trace() {
@@ -224,7 +168,6 @@ export default function Trace() {
               isLast={i === entries.length - 1}
             />
           ))}
-          <NowEntry line1={t.trace.nowLine1} line2={t.trace.nowLine2} active={t.trace.active} />
         </div>
 
       </div>

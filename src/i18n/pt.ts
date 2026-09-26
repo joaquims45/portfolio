@@ -58,9 +58,6 @@ export const pt: Translations = {
       },
     ],
     present: 'Presente',
-    nowLine1: 'Sistemas de IA',
-    nowLine2: 'Engenharia Backend',
-    active: 'ATIVO',
   },
   education: {
     title: 'Educação',

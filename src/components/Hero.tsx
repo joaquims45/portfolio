@@ -138,7 +138,7 @@ export default function Hero() {
             <p className="font-mono text-[8px] tracking-[0.22em] text-ink/25">
               {t.hero.archLabel}
             </p>
-            <div className="max-w-[320px]">
+            <div className="max-w-[560px] w-full">
               <SystemDiagram />
             </div>
           </div>
