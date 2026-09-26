@@ -16,7 +16,6 @@ export const es: Translations = {
     location: 'SANTA FE, ARGENTINA',
     headline: ['CONSTRUYO', 'SOFTWARE', 'QUE PUEDE', 'RAZONAR', 'ANTES DE', 'ACTUAR.'],
     archLabel: 'SISTEMA / ARQUITECTURA',
-    cta: 'VER EXPERIENCIA',
   },
   trace: {
     title: 'Experiencia',
@@ -85,7 +84,7 @@ export const es: Translations = {
     },
   },
   work: {
-    title: 'Proyectos Seleccionados',
+    title: 'Proyectos Personales',
     technologies: 'Tecnologías',
     architecture: 'Arquitectura',
     projectLabel: 'PROYECTO',
@@ -94,7 +93,7 @@ export const es: Translations = {
     },
     sourceLens: {
       name: ['Source', 'Lens'],
-      tagline: ['Entiende una base de código', 'antes de tocarla.'],
+      tagline: ['Pregunta lo que sea sobre un repositorio —', 'cada respuesta cita código real.'],
     },
     salesAgent: {
       name: ['AI Sales', 'Agent'],
@@ -124,7 +123,6 @@ export const es: Translations = {
       'Desarrollo de videojuegos indie',
       'Fútbol',
       'Viajar',
-      'Side quests de IA',
     ],
   },
   contact: {

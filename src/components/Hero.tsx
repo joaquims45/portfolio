@@ -143,42 +143,6 @@ export default function Hero() {
             </div>
           </div>
         </div>
-
-        {/* CTAs */}
-        <div
-          className="mt-14 md:mt-20 pt-8 flex flex-wrap items-center gap-8"
-          style={{ borderTop: '1px solid rgba(236,231,222,0.07)' }}
-        >
-          <a
-            href="#trace"
-            className="font-mono text-[10px] tracking-[0.22em] text-ink/50 hover:text-signal transition-colors duration-200 flex items-center gap-2"
-          >
-            {t.hero.cta}
-            <span className="text-signal text-[13px]">↓</span>
-          </a>
-
-          <span className="h-px w-6 bg-ink/12" />
-
-          <a
-            href="https://github.com/joaquims45"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-[10px] tracking-[0.22em] text-ink/35 hover:text-ink/75 transition-colors duration-200 flex items-center gap-1.5"
-          >
-            GITHUB
-            <span className="text-signal/70 text-[11px]">↗</span>
-          </a>
-
-          <a
-            href="https://www.linkedin.com/in/joaquin-schmidt-13365120a/"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="font-mono text-[10px] tracking-[0.22em] text-ink/35 hover:text-ink/75 transition-colors duration-200 flex items-center gap-1.5"
-          >
-            LINKEDIN
-            <span className="text-signal/70 text-[11px]">↗</span>
-          </a>
-        </div>
       </div>
 
       {/* Section divider */}

@@ -162,7 +162,7 @@ export default function Work() {
   return (
     <section
       id="work"
-      className="pt-16 md:pt-20 pb-16 md:pb-20 px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto"
+      className="pt-16 md:pt-20 px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto"
     >
       {/* Section header */}
       <div className="flex items-baseline gap-6 mb-16 md:mb-20">

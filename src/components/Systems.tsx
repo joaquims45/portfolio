@@ -47,7 +47,7 @@ export default function Systems() {
   return (
     <section
       id="systems"
-      className="pt-16 md:pt-20 pb-16 md:pb-20"
+      className="pt-16 md:pt-20"
       style={{ borderTop: '1px solid rgba(236,231,222,0.07)' }}
     >
       <div className="px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto">

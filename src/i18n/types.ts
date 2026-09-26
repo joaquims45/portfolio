@@ -23,7 +23,6 @@ export interface Translations {
     location: string;
     headline: [string, string, string, string, string, string];
     archLabel: string;
-    cta: string;
   };
   trace: {
     title: string;
@@ -68,7 +67,7 @@ export interface Translations {
     exploringLabel: string;
     exploringItems: [string, string, string, string, string];
     offKeyboardLabel: string;
-    offKeyboardItems: [string, string, string, string, string];
+    offKeyboardItems: [string, string, string, string];
   };
   contact: {
     title: string;

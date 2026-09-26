@@ -8,13 +8,13 @@ export default function Education() {
   return (
     <section
       id="education"
-      className="pt-16 md:pt-20 pb-16 md:pb-20"
+      className="pt-16 md:pt-20"
       style={{ borderTop: '1px solid rgba(236,231,222,0.07)' }}
     >
       <div className="px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto">
 
         {/* Section header */}
-        <div className="flex items-baseline gap-6 mb-16 md:mb-20">
+        <div className="flex items-baseline gap-6 mb-8 md:mb-10">
           <span className="font-mono text-[10px] tracking-[0.22em] text-signal/70">03</span>
           <h2
             className="font-serif text-ink"
@@ -27,7 +27,7 @@ export default function Education() {
 
         {/* Degree */}
         <div className="max-w-2xl mb-16">
-          <div className="h-px mb-6 bg-ink/8" />
+          <div className="h-px mb-4 bg-ink/8" />
           <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
             <h3 className="font-serif text-ink" style={{ fontSize: 'clamp(20px, 2.2vw, 30px)' }}>
               Escuela Da Vinci
