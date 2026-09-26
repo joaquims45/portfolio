@@ -193,7 +193,7 @@ export default function Trace() {
   return (
     <section
       id="trace"
-      className="py-28 md:py-36"
+      className="pt-16 md:pt-20 pb-28 md:pb-36"
       style={{ borderTop: '1px solid rgba(236,231,222,0.07)' }}
     >
       <div className="px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto">

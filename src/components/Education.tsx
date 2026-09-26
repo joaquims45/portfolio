@@ -1,21 +1,9 @@
 import { useLanguage } from '../i18n';
 
-interface DegreeEntry {
-  institution: string;
-  dates: string;
-}
-
 /* ─── Education Section ─── */
 
 export default function Education() {
   const { t } = useLanguage();
-
-  const degrees: DegreeEntry[] = [
-    { institution: 'Escuela Da Vinci', dates: `2026 — ${t.education.present}` },
-    { institution: 'E.E.M.P.A. N° 1151 — Francisco Urondo, Santa Fe, Argentina', dates: '2016' },
-  ];
-
-  const degreeTitles = [t.education.degreeTitle, t.education.secondaryTitle];
 
   return (
     <section
@@ -37,24 +25,20 @@ export default function Education() {
           <div className="flex-1 h-px bg-ink/8 ml-4 hidden md:block" />
         </div>
 
-        {/* Degrees */}
-        <div className="max-w-2xl flex flex-col gap-10 mb-16">
-          {degrees.map((degree, i) => (
-            <div key={degree.institution}>
-              <div className="h-px mb-6 bg-ink/8" />
-              <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
-                <h3 className="font-serif text-ink" style={{ fontSize: 'clamp(20px, 2.2vw, 30px)' }}>
-                  {degree.institution}
-                </h3>
-                <span className="font-mono text-[9px] tracking-[0.18em] text-ink/30">
-                  {degree.dates}
-                </span>
-              </div>
-              <p className="font-mono text-[10px] tracking-[0.2em] text-signal/70 mt-2">
-                {degreeTitles[i]}
-              </p>
-            </div>
-          ))}
+        {/* Degree */}
+        <div className="max-w-2xl mb-16">
+          <div className="h-px mb-6 bg-ink/8" />
+          <div className="flex flex-wrap items-baseline justify-between gap-x-6 gap-y-1">
+            <h3 className="font-serif text-ink" style={{ fontSize: 'clamp(20px, 2.2vw, 30px)' }}>
+              Escuela Da Vinci
+            </h3>
+            <span className="font-mono text-[9px] tracking-[0.18em] text-ink/30">
+              2026 — {t.education.present}
+            </span>
+          </div>
+          <p className="font-mono text-[10px] tracking-[0.2em] text-signal/70 mt-2">
+            {t.education.degreeTitle}
+          </p>
         </div>
 
         {/* Courses */}
@@ -62,9 +46,9 @@ export default function Education() {
           <p className="font-mono text-[9px] tracking-[0.25em] text-ink/30 mb-4">
             {t.education.coursesLabel}
           </p>
-          <div className="flex flex-wrap gap-x-5 gap-y-2">
+          <div className="flex flex-col gap-3">
             {t.education.courses.map((course) => (
-              <span key={course} className="font-mono text-[11px] tracking-[0.05em] text-ink/60">
+              <span key={course} className="font-mono text-[13px] tracking-[0.05em] text-ink/60">
                 {course}
               </span>
             ))}

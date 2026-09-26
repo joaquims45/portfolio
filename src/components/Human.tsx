@@ -27,7 +27,7 @@ export default function Human() {
   return (
     <section
       id="human"
-      className="py-28 md:py-40"
+      className="pt-28 md:pt-40 pb-16 md:pb-20"
       style={{ borderTop: '1px solid rgba(236,231,222,0.07)' }}
     >
       <div className="px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto">
@@ -56,7 +56,7 @@ export default function Human() {
           >
             <p
               className="font-serif text-ink leading-[0.9] tracking-tight"
-              style={{ fontSize: 'clamp(36px, 5.5vw, 88px)' }}
+              style={{ fontSize: 'clamp(30px, 4.6vw, 72px)' }}
             >
               {t.human.statement[0]}<br />
               {t.human.statement[1]}<br />

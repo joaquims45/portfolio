@@ -37,7 +37,7 @@ export default function Navigation() {
       if (!el) return null;
       const obs = new IntersectionObserver(
         ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
-        { threshold: 0.25, rootMargin: '-56px 0px 0px 0px' }
+        { threshold: 0.25, rootMargin: '-64px 0px 0px 0px' }
       );
       obs.observe(el);
       return obs;
@@ -52,7 +52,7 @@ export default function Navigation() {
           {i > 0 && <span className="text-ink/15">/</span>}
           <button
             onClick={() => { setLanguage(lang.code); onSelect?.(); }}
-            className={`font-mono text-[10px] tracking-[0.15em] transition-colors duration-200 ${
+            className={`font-mono text-[11px] tracking-[0.15em] transition-colors duration-200 ${
               language === lang.code ? 'text-signal' : 'text-ink/35 hover:text-ink/70'
             }`}
           >
@@ -72,28 +72,28 @@ export default function Navigation() {
         backdropFilter: scrolled ? 'blur(12px)' : 'none',
       }}
     >
-      <div className="max-w-[1440px] mx-auto px-6 md:px-12 h-14 flex items-center justify-between">
+      <div className="max-w-[1440px] mx-auto px-6 md:px-12 h-16 flex items-center justify-between">
         {/* Identity */}
         <a
           href="#"
-          className="font-mono text-[10px] tracking-[0.22em] text-ink/50 hover:text-signal transition-colors duration-200"
+          className="font-mono text-[11px] tracking-[0.22em] text-ink/50 hover:text-signal transition-colors duration-200"
         >
           JOAQUIN / SCHMIDT
         </a>
 
         {/* Desktop navigation */}
-        <div className="hidden md:flex items-center gap-7">
+        <div className="hidden md:flex items-center gap-8">
           {NAV_IDS.map((id) => (
             <a
               key={id}
               href={`#${id}`}
-              className={`nav-item flex items-baseline gap-1.5 font-mono text-[10px] tracking-[0.15em] ${
+              className={`nav-item flex items-baseline gap-1.5 font-mono text-[11px] tracking-[0.15em] ${
                 activeSection === id
                   ? 'text-ink active'
                   : 'text-ink/35 hover:text-ink/70'
               }`}
             >
-              <span className="text-signal/60 text-[9px]">{NAV_INDICES[id]}</span>
+              <span className="text-signal/60 text-[10px]">{NAV_INDICES[id]}</span>
               {t.nav[id]}
             </a>
           ))}
@@ -104,7 +104,7 @@ export default function Navigation() {
 
         {/* Mobile toggle */}
         <button
-          className="md:hidden font-mono text-[10px] tracking-[0.2em] text-ink/40 hover:text-ink transition-colors"
+          className="md:hidden font-mono text-[11px] tracking-[0.2em] text-ink/40 hover:text-ink transition-colors"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >
@@ -123,10 +123,10 @@ export default function Navigation() {
               key={id}
               href={`#${id}`}
               onClick={() => setMenuOpen(false)}
-              className="flex items-baseline gap-4 py-3.5 font-mono text-[11px] tracking-[0.14em] text-ink/45 hover:text-ink transition-colors"
+              className="flex items-baseline gap-4 py-3.5 font-mono text-[12px] tracking-[0.14em] text-ink/45 hover:text-ink transition-colors"
               style={{ borderBottom: '1px solid rgba(236,231,222,0.05)' }}
             >
-              <span className="text-signal text-[10px]">{NAV_INDICES[id]}</span>
+              <span className="text-signal text-[11px]">{NAV_INDICES[id]}</span>
               {t.nav[id]}
             </a>
           ))}

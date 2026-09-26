@@ -36,7 +36,6 @@ export interface Translations {
   education: {
     title: string;
     degreeTitle: string;
-    secondaryTitle: string;
     present: string;
     coursesLabel: string;
     courses: [string, string, string, string, string, string];

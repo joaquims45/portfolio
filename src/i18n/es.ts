@@ -65,7 +65,6 @@ export const es: Translations = {
   education: {
     title: 'Educación',
     degreeTitle: 'Analista en Sistemas',
-    secondaryTitle: 'Título Secundario',
     present: 'Presente',
     coursesLabel: 'Cursos',
     courses: [
