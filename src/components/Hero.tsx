@@ -1,3 +1,5 @@
+import { useLanguage } from '../i18n';
+
 /* ─── Static System Diagram ─── */
 
 const ACTIVE_NODES = new Set(['input', 'route', 'reason', 'act']);
@@ -92,6 +94,8 @@ function SystemDiagram() {
 /* ─── Hero Section ─── */
 
 export default function Hero() {
+  const { t } = useLanguage();
+
   return (
     <section
       className="relative min-h-[100dvh] flex flex-col bg-grid"
@@ -103,11 +107,11 @@ export default function Hero() {
         {/* Metadata row */}
         <div className="mb-10 md:mb-14 flex items-center gap-6">
           <span className="font-mono text-[9px] tracking-[0.28em] text-signal">
-            AI / SOFTWARE ENGINEER
+            {t.hero.role}
           </span>
           <span className="h-px w-6 bg-ink/20" />
           <span className="font-mono text-[9px] tracking-[0.28em] text-ink/30">
-            SANTA FE, ARGENTINA
+            {t.hero.location}
           </span>
         </div>
 
@@ -120,19 +124,19 @@ export default function Hero() {
               className="font-serif text-ink leading-[0.88] tracking-tight"
               style={{ fontSize: 'clamp(56px, 8.5vw, 130px)' }}
             >
-              I BUILD<br />
-              SOFTWARE<br />
-              <em className="not-italic text-ink/55">THAT CAN</em><br />
-              REASON<br />
-              BEFORE IT<br />
-              <span className="text-signal">ACTS.</span>
+              {t.hero.headline[0]}<br />
+              {t.hero.headline[1]}<br />
+              <em className="not-italic text-ink/55">{t.hero.headline[2]}</em><br />
+              {t.hero.headline[3]}<br />
+              {t.hero.headline[4]}<br />
+              <span className="text-signal">{t.hero.headline[5]}</span>
             </h1>
           </div>
 
           {/* Diagram column */}
           <div className="flex flex-col gap-4 lg:items-start">
             <p className="font-mono text-[8px] tracking-[0.22em] text-ink/25">
-              SYSTEM / ARCHITECTURE
+              {t.hero.archLabel}
             </p>
             <div className="max-w-[320px]">
               <SystemDiagram />
@@ -149,14 +153,14 @@ export default function Hero() {
             href="#trace"
             className="font-mono text-[10px] tracking-[0.22em] text-ink/50 hover:text-signal transition-colors duration-200 flex items-center gap-2"
           >
-            VIEW EXPERIENCE
+            {t.hero.cta}
             <span className="text-signal text-[13px]">↓</span>
           </a>
 
           <span className="h-px w-6 bg-ink/12" />
 
           <a
-            href="https://github.com/joaquinschmidt"
+            href="https://github.com/joaquims45"
             target="_blank"
             rel="noopener noreferrer"
             className="font-mono text-[10px] tracking-[0.22em] text-ink/35 hover:text-ink/75 transition-colors duration-200 flex items-center gap-1.5"
@@ -166,7 +170,7 @@ export default function Hero() {
           </a>
 
           <a
-            href="https://linkedin.com/in/joaquinschmidt"
+            href="https://www.linkedin.com/in/joaquin-schmidt-13365120a/"
             target="_blank"
             rel="noopener noreferrer"
             className="font-mono text-[10px] tracking-[0.22em] text-ink/35 hover:text-ink/75 transition-colors duration-200 flex items-center gap-1.5"

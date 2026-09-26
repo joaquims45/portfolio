@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
+import { useLanguage } from '../i18n';
 
 function useInView(threshold = 0.12) {
   const ref = useRef<HTMLDivElement>(null);
@@ -17,6 +18,7 @@ function useInView(threshold = 0.12) {
 }
 
 export default function Contact() {
+  const { t } = useLanguage();
   const { ref, inView } = useInView();
 
   return (
@@ -30,12 +32,12 @@ export default function Contact() {
 
         {/* Section index */}
         <div className="flex items-baseline gap-6 mb-16 md:mb-20">
-          <span className="font-mono text-[10px] tracking-[0.22em] text-signal/70">05</span>
+          <span className="font-mono text-[10px] tracking-[0.22em] text-signal/70">06</span>
           <span
             className="font-serif text-ink"
             style={{ fontSize: 'clamp(28px, 3.5vw, 52px)' }}
           >
-            Contact
+            {t.contact.title}
           </span>
         </div>
 
@@ -53,10 +55,10 @@ export default function Contact() {
             className="font-serif text-ink leading-[0.9] mb-14 md:mb-16"
             style={{ fontSize: 'clamp(36px, 6vw, 92px)' }}
           >
-            HAVE AN<br />
-            INTERESTING<br />
-            PROBLEM<br />
-            <em className="not-italic text-ink/40">TO SOLVE?</em>
+            {t.contact.heading[0]}<br />
+            {t.contact.heading[1]}<br />
+            {t.contact.heading[2]}<br />
+            <em className="not-italic text-ink/40">{t.contact.heading[3]}</em>
           </h2>
 
           {/* Email */}
@@ -83,7 +85,7 @@ export default function Contact() {
           {/* External links */}
           <div className="flex items-center gap-8">
             <a
-              href="https://github.com/joaquinschmidt"
+              href="https://github.com/joaquims45"
               target="_blank"
               rel="noopener noreferrer"
               className="font-mono text-[11px] tracking-[0.22em] text-ink/35 hover:text-ink/70 transition-colors duration-200 flex items-center gap-1.5"
@@ -93,7 +95,7 @@ export default function Contact() {
             </a>
             <span className="h-px w-5 bg-ink/12" />
             <a
-              href="https://linkedin.com/in/joaquinschmidt"
+              href="https://www.linkedin.com/in/joaquin-schmidt-13365120a/"
               target="_blank"
               rel="noopener noreferrer"
               className="font-mono text-[11px] tracking-[0.22em] text-ink/35 hover:text-ink/70 transition-colors duration-200 flex items-center gap-1.5"
@@ -113,7 +115,7 @@ export default function Contact() {
         <div>
           <p className="font-mono text-[9px] tracking-[0.22em] text-ink/25 leading-5">
             JOAQUIN SCHMIDT<br />
-            AI / SOFTWARE ENGINEER
+            {t.contact.footerRole}
           </p>
         </div>
         <p className="font-mono text-[9px] tracking-[0.2em] text-ink/20">

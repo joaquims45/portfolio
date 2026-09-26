@@ -1,35 +1,21 @@
 import { useEffect, useRef, useState } from 'react';
+import { useLanguage } from '../i18n';
 
-interface TraceEntry {
+interface TraceEntryMeta {
   timestamp: string;
   company: string;
-  role: string;
-  tasks: string[];
   stack: string;
 }
 
-const ENTRIES: TraceEntry[] = [
-  {
-    timestamp: '2024.05',
-    company: 'HELPIA',
-    role: 'FULL-STACK DEVELOPER',
-    tasks: ['Multi-agent systems', 'REST & WebSocket APIs', 'AI application interfaces'],
-    stack: 'Python · Django · React · LangGraph',
-  },
-  {
-    timestamp: '2025.03',
-    company: 'GENTS',
-    role: 'AI ENGINEER',
-    tasks: ['Multi-tenant AI architecture', 'RAG systems', 'Agent orchestration', 'Omnichannel AI'],
-    stack: 'LangGraph · LangChain · Django · React',
-  },
-  {
-    timestamp: '2025.08',
-    company: 'TECNOSOFTWARE',
-    role: 'FULL-STACK DEVELOPER',
-    tasks: ['Production backend systems', 'Distributed services', 'Async workers', 'Business-critical automation'],
-    stack: 'NestJS · TypeScript · PostgreSQL · Redis · SQS',
-  },
+interface TraceEntry extends TraceEntryMeta {
+  role: string;
+  tasks: string[];
+}
+
+const ENTRIES_META: TraceEntryMeta[] = [
+  { timestamp: '2024.05', company: 'HELPIA', stack: 'Python · Django · React · LangGraph' },
+  { timestamp: '2025.03', company: 'GENTS', stack: 'LangGraph · LangChain · Django · React' },
+  { timestamp: '2025.08', company: 'TECNOSOFTWARE', stack: 'NestJS · TypeScript · PostgreSQL · Redis · SQS' },
 ];
 
 function useInView(threshold = 0.2) {
@@ -134,7 +120,13 @@ function TraceItem({ entry, delay = 0, isLast = false }: TraceItemProps) {
 
 /* ─── "NOW" terminal entry ─── */
 
-function NowEntry() {
+interface NowEntryProps {
+  line1: string;
+  line2: string;
+  active: string;
+}
+
+function NowEntry({ line1, line2, active }: NowEntryProps) {
   const { ref, inView } = useInView(0.15);
 
   return (
@@ -169,12 +161,12 @@ function NowEntry() {
             className="font-serif text-ink mb-1"
             style={{ fontSize: 'clamp(22px, 2.5vw, 36px)' }}
           >
-            AI Systems<em className="not-italic text-ink/40"> ×</em><br />
-            Backend Engineering
+            {line1}<em className="not-italic text-ink/40"> ×</em><br />
+            {line2}
           </h3>
 
           <p className="font-mono text-[10px] tracking-[0.16em] text-signal/50 mt-3">
-            ACTIVE
+            {active}
           </p>
         </div>
       </div>
@@ -185,7 +177,13 @@ function NowEntry() {
 /* ─── Trace Section ─── */
 
 export default function Trace() {
+  const { t } = useLanguage();
   const { ref: headRef, inView: headIn } = useInView(0.2);
+
+  const entries: TraceEntry[] = ENTRIES_META.map((meta, i) => ({
+    ...meta,
+    ...t.trace.entries[i],
+  }));
 
   return (
     <section
@@ -200,27 +198,27 @@ export default function Trace() {
           ref={headRef}
           className={`flex items-baseline gap-6 mb-20 md:mb-28 trace-item ${headIn ? 'in-view' : ''}`}
         >
-          <span className="font-mono text-[10px] tracking-[0.22em] text-signal/70">01</span>
+          <span className="font-mono text-[10px] tracking-[0.22em] text-signal/70">02</span>
           <h2
             className="font-serif text-ink"
             style={{ fontSize: 'clamp(28px, 3.5vw, 52px)' }}
           >
-            Execution Trace
+            {t.trace.title}
           </h2>
           <div className="flex-1 h-px bg-ink/8 ml-4 hidden md:block" />
         </div>
 
         {/* Trace log */}
         <div className="max-w-2xl">
-          {ENTRIES.map((entry, i) => (
+          {entries.map((entry, i) => (
             <TraceItem
               key={entry.company}
               entry={entry}
               delay={i * 80}
-              isLast={i === ENTRIES.length - 1}
+              isLast={i === entries.length - 1}
             />
           ))}
-          <NowEntry />
+          <NowEntry line1={t.trace.nowLine1} line2={t.trace.nowLine2} active={t.trace.active} />
         </div>
 
       </div>

@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useLanguage } from '../i18n';
 
 /* ─── Small reusable architecture mini-diagram ─── */
 
@@ -194,15 +195,18 @@ function Label({ children }: { children: React.ReactNode }) {
   );
 }
 
-function StatusBadge({ status }: { status: string }) {
-  const colors: Record<string, string> = {
-    'IN DEVELOPMENT': 'text-signal',
-    'COMING SOON': 'text-ink/45',
-    'RESEARCHING': 'text-ink/30',
-  };
+type StatusVariant = 'development' | 'comingSoon' | 'researching';
+
+const STATUS_COLORS: Record<StatusVariant, string> = {
+  development: 'text-signal',
+  comingSoon: 'text-ink/45',
+  researching: 'text-ink/30',
+};
+
+function StatusBadge({ variant, label }: { variant: StatusVariant; label: string }) {
   return (
-    <span className={`font-mono text-[9px] tracking-[0.22em] ${colors[status] ?? 'text-ink/40'}`}>
-      ● {status}
+    <span className={`font-mono text-[9px] tracking-[0.22em] ${STATUS_COLORS[variant]}`}>
+      ● {label}
     </span>
   );
 }
@@ -210,6 +214,7 @@ function StatusBadge({ status }: { status: string }) {
 /* ─── Work Section ─── */
 
 export default function Work() {
+  const { t } = useLanguage();
   const [hovered, setHovered] = useState<number | null>(null);
 
   return (
@@ -219,12 +224,12 @@ export default function Work() {
     >
       {/* Section header */}
       <div className="flex items-baseline gap-6 mb-20 md:mb-28">
-        <span className="font-mono text-[10px] tracking-[0.22em] text-signal/70">03</span>
+        <span className="font-mono text-[10px] tracking-[0.22em] text-signal/70">05</span>
         <h2
           className="font-serif text-ink"
           style={{ fontSize: 'clamp(28px, 3.5vw, 52px)' }}
         >
-          Selected Work
+          {t.work.title}
         </h2>
         <div className="flex-1 h-px bg-ink/8 ml-4 hidden md:block" />
       </div>
@@ -249,46 +254,46 @@ export default function Work() {
           {/* Left: content */}
           <div className="flex flex-col gap-6">
             <div className="flex items-baseline gap-4">
-              <Label>PROJECT 01</Label>
+              <Label>{t.work.projectLabel} 01</Label>
             </div>
 
             <h3
               className="font-serif text-ink leading-[0.92]"
               style={{ fontSize: 'clamp(38px, 5.5vw, 86px)' }}
             >
-              Source<br />
-              <em className="not-italic text-ink/50">Lens</em>
+              {t.work.sourceLens.name[0]}<br />
+              <em className="not-italic text-ink/50">{t.work.sourceLens.name[1]}</em>
             </h3>
 
             <p
               className="text-ink/60 leading-relaxed max-w-md"
               style={{ fontSize: 'clamp(15px, 1.2vw, 18px)' }}
             >
-              Understand a codebase<br />
-              before touching it.
+              {t.work.sourceLens.tagline[0]}<br />
+              {t.work.sourceLens.tagline[1]}
             </p>
 
             <div className="flex flex-col gap-2 mt-2">
-              <Label>Technologies</Label>
+              <Label>{t.work.technologies}</Label>
               <p className="font-mono text-[11px] tracking-[0.1em] text-ink/45">
                 Python / Django / React / FAISS / RAG
               </p>
             </div>
 
             <div className="flex items-center gap-6 mt-4">
-              <StatusBadge status="IN DEVELOPMENT" />
+              <StatusBadge variant="development" label={t.work.status.development} />
               <a
                 href="#"
                 className="font-mono text-[10px] tracking-[0.2em] text-ink/40 hover:text-signal transition-colors duration-200 flex items-center gap-1.5"
               >
-                CASE STUDY <span className="text-signal">→</span>
+                {t.work.caseStudy} <span className="text-signal">→</span>
               </a>
             </div>
           </div>
 
           {/* Right: architecture */}
           <div className="flex flex-col gap-3 lg:items-end">
-            <Label>Architecture</Label>
+            <Label>{t.work.architecture}</Label>
             <MiniDiagram nodes={sourceLensNodes} active={hovered === 1} />
           </div>
         </div>
@@ -314,40 +319,40 @@ export default function Work() {
 
           {/* Left: architecture */}
           <div className="flex flex-col gap-3 lg:min-w-[200px]">
-            <Label>Architecture</Label>
+            <Label>{t.work.architecture}</Label>
             <MiniDiagram nodes={salesAgentNodes} active={hovered === 2} />
           </div>
 
           {/* Right: content */}
           <div className="flex flex-col gap-6">
-            <Label>PROJECT 02</Label>
+            <Label>{t.work.projectLabel} 02</Label>
 
             <h3
               className="font-serif text-ink leading-[0.92]"
               style={{ fontSize: 'clamp(38px, 5.5vw, 86px)' }}
             >
-              AI Sales<br />
-              <em className="not-italic text-ink/50">Agent</em>
+              {t.work.salesAgent.name[0]}<br />
+              <em className="not-italic text-ink/50">{t.work.salesAgent.name[1]}</em>
             </h3>
 
             <p
               className="text-ink/60 leading-relaxed max-w-md"
               style={{ fontSize: 'clamp(15px, 1.2vw, 18px)' }}
             >
-              Products shouldn't<br />
-              just be searchable.<br />
-              <span className="text-ink/35">They should be able<br />to explain themselves.</span>
+              {t.work.salesAgent.tagline[0]}<br />
+              {t.work.salesAgent.tagline[1]}<br />
+              <span className="text-ink/35">{t.work.salesAgent.tagline[2]}<br />{t.work.salesAgent.tagline[3]}</span>
             </p>
 
             <div className="flex flex-col gap-2 mt-2">
-              <Label>Technologies</Label>
+              <Label>{t.work.technologies}</Label>
               <p className="font-mono text-[11px] tracking-[0.1em] text-ink/45">
                 LangGraph / LangChain / Django / React / Mercado Pago
               </p>
             </div>
 
             <div className="mt-4">
-              <StatusBadge status="COMING SOON" />
+              <StatusBadge variant="comingSoon" label={t.work.status.comingSoon} />
             </div>
           </div>
         </div>
@@ -372,24 +377,24 @@ export default function Work() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-20 items-center">
 
           <div className="flex flex-col gap-6">
-            <Label>PROJECT 03</Label>
+            <Label>{t.work.projectLabel} 03</Label>
 
             <h3
               className="font-serif text-ink leading-[0.92]"
               style={{ fontSize: 'clamp(38px, 5.5vw, 86px)' }}
             >
-              Agent<br />
-              Workflow<br />
-              <em className="not-italic text-ink/30">Experiment</em>
+              {t.work.agentWorkflow.name[0]}<br />
+              {t.work.agentWorkflow.name[1]}<br />
+              <em className="not-italic text-ink/30">{t.work.agentWorkflow.name[2]}</em>
             </h3>
 
             <p className="text-ink/35 leading-relaxed max-w-sm font-light"
               style={{ fontSize: 'clamp(14px, 1.1vw, 17px)' }}>
-              Exploring multi-agent coordination patterns, routing strategies, and state machines for production agentic systems.
+              {t.work.agentWorkflow.tagline}
             </p>
 
             <div className="mt-4 flex flex-col gap-3">
-              <StatusBadge status="RESEARCHING" />
+              <StatusBadge variant="researching" label={t.work.status.researching} />
               <p className="font-mono text-[9px] tracking-[0.18em] text-ink/20">
                 LangGraph / Python / Custom Orchestration
               </p>
@@ -398,7 +403,7 @@ export default function Work() {
 
           {/* Abstract node graph */}
           <div className="flex flex-col gap-3 items-start lg:items-center">
-            <Label>Topology</Label>
+            <Label>{t.work.topology}</Label>
             <AbstractNodeGraph active={hovered === 3} />
           </div>
         </div>
