@@ -122,7 +122,7 @@ export default function Hero() {
           <div>
             <h1
               className="font-serif text-ink leading-[0.88] tracking-tight"
-              style={{ fontSize: 'clamp(56px, 8.5vw, 130px)' }}
+              style={{ fontSize: 'clamp(48px, 7.2vw, 108px)' }}
             >
               {t.hero.headline[0]}<br />
               {t.hero.headline[1]}<br />

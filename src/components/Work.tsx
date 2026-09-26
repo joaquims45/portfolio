@@ -113,7 +113,7 @@ function MiniDiagram({ nodes, active }: MiniDiagramProps) {
 const sourceLensNodes: ArchNode[] = [
   { label: 'Repository', x: 100, y: 10, to: [1] },
   { label: 'Parse', x: 100, y: 54, to: [2] },
-  { label: 'Index', x: 100, y: 98, to: [3], sideLabel: 'FAISS' },
+  { label: 'Index', x: 100, y: 98, to: [3], sideLabel: 'pgvector' },
   { label: 'Retrieve', x: 100, y: 142, to: [4] },
   { label: 'Reason', x: 100, y: 186, to: [] },
 ];
@@ -218,7 +218,7 @@ export default function Work() {
             <div className="flex flex-col gap-2 mt-2">
               <Label>{t.work.technologies}</Label>
               <p className="font-mono text-[11px] tracking-[0.1em] text-ink/45">
-                Python / Django / React / FAISS / RAG
+                FastAPI / LangGraph / PostgreSQL + pgvector / Celery + Redis / React
               </p>
             </div>
 
