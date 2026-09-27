@@ -116,7 +116,7 @@ export const es: Translations = {
       'Evaluación de LLM',
       'Sistemas human-in-the-loop',
     ],
-    offKeyboardLabel: 'FUERA DEL TECLADO',
+    offKeyboardLabel: 'FUERA DEL TRABAJO',
     offKeyboardItems: [
       'Gaming',
       'Desarrollo de videojuegos indie',
