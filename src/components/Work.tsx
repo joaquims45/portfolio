@@ -121,12 +121,13 @@ const sourceLensNodes: ArchNode[] = [
 /* ─── Project 02 — AI Sales Agent ─── */
 
 const salesAgentNodes: ArchNode[] = [
-  { label: 'Product Catalog', x: 110, y: 10, to: [1] },
-  { label: 'RAG', x: 110, y: 54, to: [2] },
-  { label: 'Agent', x: 110, y: 98, to: [3, 4] },
-  { label: 'Customer', x: 60, y: 148, to: [] },
-  { label: 'Tools', x: 160, y: 148, to: [5] },
-  { label: 'Mercado Pago', x: 160, y: 192, to: [] },
+  { label: 'DISCOVERY', x: 100, y: 10, to: [1] },
+  { label: 'ASK_FOR_BUDGET', x: 100, y: 54, to: [2] },
+  { label: 'PRODUCT_SEARCH', x: 100, y: 98, to: [3] },
+  { label: 'RECOMMENDATION', x: 100, y: 142, to: [4] },
+  { label: 'SELECT_PRODUCT', x: 100, y: 186, to: [5] },
+  { label: 'ASK_WHICH_PRODUCT', x: 100, y: 230, to: [6] },
+  { label: 'CHECKOUT', x: 100, y: 274, to: [] },
 ];
 
 /* ─── Label component ─── */
@@ -265,16 +266,8 @@ export default function Work() {
           }}
         />
 
-        {/* Different composition: centered text, arch on left */}
-        <div className="grid grid-cols-1 lg:grid-cols-[auto_1fr] gap-10 lg:gap-24 items-start">
-
-          {/* Left: architecture */}
-          <div className="flex flex-col gap-3 lg:min-w-[200px]">
-            <Label>{t.work.architecture}</Label>
-            <MiniDiagram nodes={salesAgentNodes} active={hovered === 2} />
-          </div>
-
-          {/* Right: content */}
+        <div className="grid grid-cols-1 lg:grid-cols-[1fr_auto] gap-10 lg:gap-20">
+          {/* Left: content */}
           <div className="flex flex-col gap-6">
             <Label>{t.work.projectLabel} 02</Label>
 
@@ -298,13 +291,38 @@ export default function Work() {
             <div className="flex flex-col gap-2 mt-2">
               <Label>{t.work.technologies}</Label>
               <p className="font-mono text-[11px] tracking-[0.1em] text-ink/45">
-                LangGraph / LangChain / Django / React / Mercado Pago
+                Django / LangGraph / RAG / FAISS / Redis / React / Mercado Pago
               </p>
             </div>
 
-            <div className="mt-4">
+            <div className="flex flex-wrap items-center gap-6 mt-4">
+              <a
+                href="https://github.com/joaquims45/sales-workflow-front"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-[10px] tracking-[0.2em] text-ink/40 hover:text-signal transition-colors duration-200 flex items-center gap-1.5"
+              >
+                FRONTEND <span className="text-signal/70 text-[11px]">↗</span>
+              </a>
+              <a
+                href="https://github.com/joaquims45/sales-workflow-back"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-[10px] tracking-[0.2em] text-ink/40 hover:text-signal transition-colors duration-200 flex items-center gap-1.5"
+              >
+                BACKEND <span className="text-signal/70 text-[11px]">↗</span>
+              </a>
+            </div>
+
+            <div className="mt-2">
               <StatusBadge variant="comingSoon" label={t.work.status.comingSoon} />
             </div>
+          </div>
+
+          {/* Right: architecture */}
+          <div className="flex flex-col gap-3 lg:items-end">
+            <Label>{t.work.architecture}</Label>
+            <MiniDiagram nodes={salesAgentNodes} active={hovered === 2} />
           </div>
         </div>
 
