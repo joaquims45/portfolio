@@ -2,7 +2,6 @@ export interface ProjectMeta {
   id: 'sourceLens' | 'salesAgent';
   stack: string[];
   repos: { label: 'FRONTEND' | 'BACKEND'; href: string }[];
-  comingSoon?: boolean;
   /** Architecture flow, top to bottom. */
   flow: { label: string; note?: string }[];
 }
@@ -30,7 +29,6 @@ export const PROJECTS: ProjectMeta[] = [
       { label: 'FRONTEND', href: 'https://github.com/joaquims45/sales-workflow-front' },
       { label: 'BACKEND', href: 'https://github.com/joaquims45/sales-workflow-back' },
     ],
-    comingSoon: true,
     flow: [
       { label: 'DISCOVERY' },
       { label: 'ASK_FOR_BUDGET' },

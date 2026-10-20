@@ -97,9 +97,6 @@ export const pt: Translations = {
     technologies: 'Tecnologias',
     architecture: 'Arquitetura',
     projectLabel: 'PROJETO',
-    status: {
-      comingSoon: 'EM BREVE',
-    },
     sourceLens: {
       name: ['Source', 'Lens'],
       tagline: ['Pergunte qualquer coisa sobre um repositório —', 'cada resposta cita código real.'],

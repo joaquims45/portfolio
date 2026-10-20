@@ -13,24 +13,18 @@ export default function Work() {
           const copy = t.work[p.id];
           const name = copy.name;
           const tagline = copy.tagline;
-          const flip = i % 2 === 1;
           return (
             <li key={p.id}>
               <Reveal>
                 <article className="project group/project">
                   <div className="draw-rule mb-8" />
                   <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-12">
-                    <div className={`flex flex-col gap-7 lg:col-span-7 ${flip ? 'lg:order-2' : ''}`}>
+                    <div className={`flex flex-col gap-7 lg:col-span-7`}>
                       <div className="flex items-center gap-4">
                         <span className="font-mono text-[13px] tracking-[0.2em] text-signal">
                           {String(i + 1).padStart(2, '0')}
                         </span>
                         <Label>{t.work.projectLabel}</Label>
-                        {p.comingSoon && (
-                          <span className="border border-signal/50 px-2 py-0.5 font-mono text-[13px] tracking-[0.18em] text-signal">
-                            {t.work.status.comingSoon}
-                          </span>
-                        )}
                       </div>
 
                       <h3 className="font-serif leading-[0.92] text-ink" style={{ fontSize: 'clamp(44px, 6.4vw, 104px)' }}>
@@ -66,7 +60,7 @@ export default function Work() {
                       </div>
                     </div>
 
-                    <div className={`flex flex-col gap-4 lg:col-span-5 ${flip ? 'lg:order-1' : 'lg:items-end'}`}>
+                    <div className={`flex flex-col gap-4 lg:col-span-5 lg:items-end`}>
                       <Label>{t.work.architecture}</Label>
                       <FlowGraph nodes={p.flow} label={`${t.work.architecture}: ${name.join(' ')}`} />
                     </div>

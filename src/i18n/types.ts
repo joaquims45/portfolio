@@ -51,9 +51,6 @@ export interface Translations {
     technologies: string;
     architecture: string;
     projectLabel: string;
-    status: {
-      comingSoon: string;
-    };
     sourceLens: {
       name: [string, string];
       tagline: [string, string];
