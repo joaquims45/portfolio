@@ -18,3 +18,8 @@ logs/
 # beside it.
 /.plugins/
 /.opencode-skills/
+
+# Claude skills
+.claude/skills/
+skills-lock.json
+.taste-skill/

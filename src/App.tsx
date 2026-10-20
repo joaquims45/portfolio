@@ -11,7 +11,7 @@ export default function App() {
   return (
     <div className="bg-bg text-ink min-h-screen">
       <Navigation />
-      <main>
+      <main id="main">
         <Hero />
         <Human />
         <Trace />

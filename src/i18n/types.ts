@@ -1,9 +1,10 @@
 export type Language = 'en' | 'es' | 'pt';
 
-export type SkillGroup = 'ai' | 'languages' | 'databases' | 'tools' | 'methodologies';
+export type SkillGroup = 'backend' | 'frontend' | 'ai' | 'data' | 'devops' | 'tools';
 
 interface TraceEntryText {
   role: string;
+  summary: string;
   tasks: string[];
 }
 
@@ -16,12 +17,17 @@ export interface Translations {
     human: string;
     contact: string;
     menu: string;
+    skip: string;
+    primary: string;
     close: string;
   };
   hero: {
     role: string;
     headline: [string, string, string, string, string, string];
     archLabel: string;
+    ctaWork: string;
+    ctaContact: string;
+    badges: [string, string, string, string];
   };
   trace: {
     title: string;
@@ -33,7 +39,7 @@ export interface Translations {
     degreeTitle: string;
     present: string;
     coursesLabel: string;
-    courses: [string, string, string, string, string, string];
+    courses: [string, string, string, string, string, string, string];
   };
   systems: {
     title: string;

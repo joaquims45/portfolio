@@ -1,161 +1,74 @@
-import { useEffect, useRef, useState } from 'react';
 import { useLanguage } from '../i18n';
-import portrait from '../assets/joaquin_schmidt.png';
+import portrait from '../assets/joaquin_schmidt.jpg';
+import { Label, Reveal, Section } from './ui/primitives';
 
-function useInView(threshold = 0.15) {
-  const ref = useRef<HTMLDivElement>(null);
-  const [inView, setInView] = useState(false);
-  useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const obs = new IntersectionObserver(
-      ([entry]) => { if (entry.isIntersecting) setInView(true); },
-      { threshold }
-    );
-    obs.observe(el);
-    return () => obs.disconnect();
-  }, [threshold]);
-  return { ref, inView };
+function ListBlock({ label, items }: { label: string; items: readonly string[] }) {
+  return (
+    <div>
+      <Label>{label}</Label>
+      <ul className="mt-3 flex flex-col gap-1.5">
+        {items.map((item) => (
+          <li key={item} className="flex items-center gap-2 font-mono text-[13px] text-muted">
+            <span aria-hidden="true" className="text-signal">
+              →
+            </span>
+            {item}
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
 }
 
 export default function Human() {
   const { t } = useLanguage();
-  const { ref: statRef, inView: statIn } = useInView(0.1);
-  const { ref: bioRef, inView: bioIn } = useInView(0.15);
-  const { ref: metaRef, inView: metaIn } = useInView(0.15);
+  const s = t.human.statement;
 
   return (
-    <section
-      id="human"
-      className="pt-16 md:pt-20 pb-8 md:pb-12"
-      style={{ borderTop: '1px solid rgba(236,231,222,0.14)' }}
-    >
-      <div className="px-6 md:px-12 lg:px-16 max-w-[1440px] mx-auto">
+    <Section id="human" index="01" title={t.human.title}>
+      <div className="grid grid-cols-1 gap-14 xl:grid-cols-12 xl:gap-10">
+        <div className="flex flex-col gap-12 xl:col-span-8">
+          <Reveal>
+            <p className="font-serif tracking-tight text-ink" style={{ fontSize: 'clamp(30px, 3.6vw, 56px)', lineHeight: 0.95 }}>
+              {s[0]} {s[1]}
+              <br />
+              <span className="text-ink/45">
+                {s[2]} {s[3]}
+              </span>
+            </p>
+          </Reveal>
 
-        {/* Section index */}
-        <div className="flex items-baseline gap-6 mb-16 md:mb-20">
-          <span className="font-mono text-[10px] tracking-[0.22em] text-signal/70">01</span>
-          <h2
-            className="font-serif text-ink"
-            style={{ fontSize: 'clamp(28px, 3.5vw, 52px)' }}
-          >
-            {t.human.title}
-          </h2>
-          <div className="flex-1 h-px bg-ink/8 ml-4 hidden md:block" />
+          <Reveal delay={80} className="max-w-xl">
+            <p className="text-[18px] leading-[1.7] font-light text-ink/90">{t.human.bioParagraphs[0]}</p>
+            <p className="mt-5 text-[17px] leading-[1.7] font-light text-muted">{t.human.bioParagraphs[1]}</p>
+          </Reveal>
+
+          <Reveal delay={120} className="grid grid-cols-1 gap-10 sm:grid-cols-3">
+            <div>
+              <Label>{t.human.focus}</Label>
+              <p className="mt-3 font-mono text-[13px] text-ink">
+                {t.human.focusValue[0]}
+                <br />
+                {t.human.focusValue[1]}
+              </p>
+            </div>
+            <ListBlock label={t.human.exploringLabel} items={t.human.exploringItems} />
+            <ListBlock label={t.human.offKeyboardLabel} items={t.human.offKeyboardItems} />
+          </Reveal>
         </div>
 
-        {/* Statement + bio | Portrait + metadata */}
-        <div className="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-12 lg:gap-20">
-
-          {/* Left: statement + bio */}
-          <div className="flex flex-col gap-16 md:gap-20">
-            <div
-              ref={statRef}
-              className="transition-all duration-700"
-              style={{
-                opacity: statIn ? 1 : 0,
-                transform: statIn ? 'none' : 'translateY(20px)',
-              }}
-            >
-              <p
-                className="font-serif text-ink leading-[0.9] tracking-tight"
-                style={{ fontSize: 'clamp(30px, 4.6vw, 72px)' }}
-              >
-                {t.human.statement[0]}<br />
-                {t.human.statement[1]}<br />
-                <span className="text-ink/35">{t.human.statement[2]}</span><br />
-                <span className="text-ink/35">{t.human.statement[3]}</span>
-              </p>
-            </div>
-
-            <div
-              ref={bioRef}
-              className="transition-all duration-700 delay-100"
-              style={{
-                opacity: bioIn ? 1 : 0,
-                transform: bioIn ? 'none' : 'translateY(16px)',
-              }}
-            >
-              <div
-                className="h-px w-10 mb-8"
-                style={{ background: 'rgba(200,144,58,0.4)' }}
-              />
-              <p
-                className="text-ink/60 leading-[1.7] font-light max-w-lg"
-                style={{ fontSize: 'clamp(15px, 1.3vw, 19px)' }}
-              >
-                {t.human.bioParagraphs[0]}
-              </p>
-              <p
-                className="text-ink/40 leading-[1.7] font-light max-w-lg mt-5"
-                style={{ fontSize: 'clamp(14px, 1.1vw, 17px)' }}
-              >
-                {t.human.bioParagraphs[1]}
-              </p>
-            </div>
-          </div>
-
-          {/* Right: portrait + metadata */}
-          <div className="flex flex-col gap-10 items-start lg:items-end">
-            <div className="w-full max-w-[280px]" style={{ border: '1px solid rgba(236,231,222,0.1)' }}>
-              <img
-                src={portrait}
-                alt="Joaquín Schmidt"
-                className="w-full h-auto block"
-              />
-            </div>
-
-            <div
-              ref={metaRef}
-              className="w-full max-w-[280px] flex flex-col gap-8 transition-all duration-700 delay-200"
-              style={{
-                opacity: metaIn ? 1 : 0,
-                transform: metaIn ? 'none' : 'translateY(16px)',
-              }}
-            >
-              {/* Focus */}
-              <div>
-                <p className="font-mono text-[9px] tracking-[0.25em] text-ink/30 mb-2">{t.human.focus}</p>
-                <p className="font-mono text-[11px] tracking-[0.1em] text-ink/60">
-                  {t.human.focusValue[0]}<br />
-                  {t.human.focusValue[1]}
-                </p>
-              </div>
-
-              {/* Currently exploring */}
-              <div>
-                <p className="font-mono text-[9px] tracking-[0.25em] text-ink/30 mb-3">
-                  {t.human.exploringLabel}
-                </p>
-                <div className="flex flex-col gap-1.5">
-                  {t.human.exploringItems.map((item) => (
-                    <p key={item} className="font-mono text-[10px] tracking-[0.08em] text-ink/45 flex items-center gap-2">
-                      <span className="text-signal/40">→</span>
-                      {item}
-                    </p>
-                  ))}
-                </div>
-              </div>
-
-              {/* Outside work */}
-              <div>
-                <p className="font-mono text-[9px] tracking-[0.25em] text-ink/30 mb-3">
-                  {t.human.offKeyboardLabel}
-                </p>
-                <div className="flex flex-col gap-1.5">
-                  {t.human.offKeyboardItems.map((item) => (
-                    <p key={item} className="font-mono text-[10px] tracking-[0.08em] text-ink/45 flex items-center gap-2">
-                      <span className="text-signal/40">→</span>
-                      {item}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
+        <Reveal delay={60} className="xl:col-span-4 xl:flex xl:justify-end">
+          <img
+            src={portrait}
+            alt="Joaquín Schmidt"
+            width={800}
+            height={800}
+            loading="lazy"
+            decoding="async"
+            className="aspect-square h-auto w-full max-w-[320px] self-start border border-line object-cover"
+          />
+        </Reveal>
       </div>
-    </section>
+    </Section>
   );
 }
