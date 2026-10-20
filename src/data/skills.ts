@@ -4,7 +4,7 @@ import type { SkillGroup } from '../i18n';
 export const SKILLS: { group: SkillGroup; items: string[] }[] = [
   {
     group: 'backend',
-    items: ['Python', 'Django', 'Django REST Framework', 'Flask', 'Node.js', 'Express.js', 'TypeORM', 'Celery'],
+    items: ['Python', 'Django', 'Django REST Framework', 'Flask', 'Node.js', 'Express.js', 'NestJS', 'TypeORM', 'Celery'],
   },
   { group: 'frontend', items: ['React', 'JavaScript', 'TypeScript'] },
   { group: 'ai', items: ['LangChain', 'LangGraph', 'LLMs', 'RAG', 'Prompt Engineering'] },
